@@ -1,0 +1,16 @@
+<h1><%= @cocktail.name %></h1>
+
+<% @cocktail.doses do |dose| %>
+  <p><%= dose.ingredient.name %> || <%= dose.description %></p>
+<% end %>
+
+  <ul class ="list-inline">
+    <li>
+      <%= link_to 'Delete', cocktail_path(@cocktail),
+        method: :delete,
+        data: { confirm: "Are you sure?" }  %>
+    </li>
+    <li>
+      <%= link_to 'Edit', edit_cocktail_path(@cocktail) %>
+    </li>
+  </ul>
